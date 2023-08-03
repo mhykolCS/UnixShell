@@ -8,11 +8,22 @@ struct data {
 	char *remainder;
 };
 
+
 void calc() {
 	return;
 }
 
 void shellTime() {
+
+	time_t rawTimeData;
+	struct tm* currentTimeStructure;
+	char currentTimeString[50];
+
+	time(&rawTimeData); //epoch time
+	localtime_s(&currentTimeStructure, &rawTimeData); //fills structure with curated time data
+	asctime_s(currentTimeString, sizeof(currentTimeString), &currentTimeStructure); // converts structure to a string
+	printf("\nCurrent time and date: %s", currentTimeString);
+
 	return;
 }
 
@@ -93,7 +104,7 @@ int main(void) {
 	do {
 		printf("$ ");
 
-		fgets(userInput.wholeInput, sizeof(userInput.wholeInput), stdin); //grabs whole line from user
+		fgets(userInput.wholeInput, sizeof(userInput.wholeInput), stdin);
 
 		dataParser(&userInput);
 
