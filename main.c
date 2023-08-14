@@ -1,50 +1,10 @@
-#include <stdio.h>
-#include <string.h>
-#include <time.h>
+#include "functions.h"
 
 struct data {
 	char wholeInput[100];
 	char firstWord[100];
 	char *remainder;
 };
-
-
-void calc() {
-	return;
-}
-
-void shellTime() {
-
-	time_t epochTime;
-	struct tm currentTime;
-	char asciiCurrentTime[50];
-	
-	time(&epochTime);
-	localtime_s(&currentTime, &epochTime);
-	asctime_s(asciiCurrentTime, sizeof(asciiCurrentTime), &currentTime);
-
-	printf("The current time and date is: %s", asciiCurrentTime);
-	
-
-
-	return;
-}
-
-void path() {
-	return;
-}
-
-void sys() {
-	return;
-}
-
-void put() {
-	return;
-}
-
-void get() {
-	return;
-}
 
 
 void dataParser(struct data* userInput){
