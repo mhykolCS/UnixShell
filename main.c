@@ -15,14 +15,17 @@ void calc() {
 
 void shellTime() {
 
-	time_t rawTimeData;
-	struct tm* currentTimeStructure;
-	char currentTimeString[50];
+	time_t epochTime;
+	struct tm currentTime;
+	char asciiCurrentTime[50];
+	
+	time(&epochTime);
+	localtime_s(&currentTime, &epochTime);
+	asctime_s(asciiCurrentTime, sizeof(asciiCurrentTime), &currentTime);
 
-	time(&rawTimeData); //epoch time
-	localtime_s(&currentTimeStructure, &rawTimeData); //fills structure with curated time data
-	asctime_s(currentTimeString, sizeof(currentTimeString), &currentTimeStructure); // converts structure to a string
-	printf("\nCurrent time and date: %s", currentTimeString);
+	printf("The current time and date is: %s", asciiCurrentTime);
+	
+
 
 	return;
 }
