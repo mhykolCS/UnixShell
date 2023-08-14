@@ -1,6 +1,8 @@
 bin/unixShell: obj/main.o obj/calc.o obj/get.o obj/path.o obj/put.o obj/shellTime.o obj/sys.o functions.h
+	mkdir -p bin
 	gcc -g obj/main.o obj/calc.o obj/get.o obj/path.o obj/put.o obj/shellTime.o obj/sys.o -o bin/unixShell
 obj/main.o: functions.h main.c
+	mkdir -p obj
 	gcc -c main.c -o obj/main.o
 obj/calc.o: functions.h calc.c
 	gcc -c calc.c -o obj/calc.o
@@ -15,6 +17,7 @@ obj/sys.o: functions.h sys.c
 obj/put.o: functions.h put.c
 	gcc -c put.c -o obj/put.o
 
-
 clean:
-	rm -f obj/main.o obj/calc.o obj/get.o obj/path.o obj/put.o obj/shellTime.o obj/sys.o bin/unixShell
+	rm -rf bin obj
+
+
