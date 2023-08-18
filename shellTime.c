@@ -8,8 +8,8 @@ void shellTime(void) {
 	char asciiCurrentTime[50];
 
 	time(&epochTime);
-	localtime_s(&currentTime, &epochTime);
-	asctime_s(asciiCurrentTime, sizeof(asciiCurrentTime), &currentTime);
+	localtime_r(&epochTime, &currentTime);
+	asctime_r(&currentTime, asciiCurrentTime);
 
 	printf("The current time and date is: %s", asciiCurrentTime);
 

@@ -1,16 +1,10 @@
 #include "functions.h"
 
-struct data {
-	char wholeInput[100];
-	char firstWord[100];
-	char *remainder;
-};
-
 
 void dataParser(struct data* userInput){
 
-	strcpy_s(userInput->firstWord, sizeof(userInput->firstWord), userInput->wholeInput);
-	strtok_s(userInput->firstWord, " \n", &userInput->remainder);
+	strcpy(userInput->firstWord, userInput->wholeInput);
+	userInput->remainder = strtok(userInput->firstWord, " \n");
 
 	return;
 }
@@ -23,7 +17,7 @@ void functionTable(struct data* userInput) {
 			printf("Command \"calc\" needs an expression\n\"calc + 3 4 3\"\n");
 			return;
 		}
-		calc();
+		calc(userInput);
 	}
 	else if (!(strcmp(userInput->firstWord, "time\0"))) {
 		shellTime();
