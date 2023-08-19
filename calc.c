@@ -68,12 +68,9 @@ void calc(struct data *userInput) {
 		return;
 	}
 
-	char** stringTable = malloc(sizeof(stringTable) * words); //creates a dynamic 2d array of 20 characters for each row
+	char** stringTable = malloc(sizeof(stringTable) * words); //allocates a dynamic 2d array and assigns each word to a row
 	for(int i = 0; i < words; i++){
 		stringTable[i] = malloc(sizeof(char) * 20);
-	}
-
-	for(int i = 0; userInput->remainder != NULL; i++){ //assigns each token to a row
 		strcpy(stringTable[i], userInput->remainder);
 		userInput->remainder = strtok(NULL, " \n");
 	}
@@ -93,5 +90,6 @@ void calc(struct data *userInput) {
 	}
 	
 
+	free(stringTable);
 	return;
 }

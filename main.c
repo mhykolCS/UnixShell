@@ -33,14 +33,14 @@ void functionTable(struct data* userInput) {
 			printf("Command \"put\" needs a directory name and filename\n\"put file.txt folder\"\n");
 			return;
 		}
-		put();
+		put(userInput);
 	}
 	else if (!(strcmp(userInput->firstWord, "get\0"))) {
 		if (userInput->remainder == NULL) {
 			printf("Command \"get\" needs a filename\n\"get file.txt\"\n");
 			return;
 		}
-		get();
+		get(userInput);
 	}
 	else if (!(strcmp(userInput->firstWord, "quit\0"))) {
 		return;
@@ -57,7 +57,7 @@ void functionTable(struct data* userInput) {
 int main(void) {
 
 	struct data userInput = (struct data){ .firstWord[0] = '\0', .wholeInput[0] = '\0', .remainder = NULL};
-
+ 
 	do {
 		printf("$ ");
 

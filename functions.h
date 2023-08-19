@@ -12,5 +12,5 @@ void shellTime(void);
 void calc(struct data *userInput);
 void path(void);
 void sys(void);
-void put(void);
-void get(void);
+void put(struct data *userInput);
+void get(struct data *userInput);
