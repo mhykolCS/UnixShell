@@ -32,7 +32,7 @@ void subtract(char** stringTable, size_t words){
 			}
 		}
 
-		if(!(boolNumber)){
+		if(!(boolNumber)){ //if entry number isn't a number, continue onwards
 			start++;
 			continue;
 		}else{
@@ -63,8 +63,8 @@ void calc(struct data *userInput) {
 		}
 	}
 
-	if(words <= 2){
-		printf("0\n");
+	if(words <= 2){ //Error Handling
+		printf("ERROR: Please enter numbers after the the expression character\n");
 		return;
 	}
 
@@ -85,7 +85,7 @@ void calc(struct data *userInput) {
 			break;
 
 		default:
-			printf("Unknown Expression Character\n");
+			printf("ERROR: Unknown Expression Character\n");
 			break;
 	}
 	

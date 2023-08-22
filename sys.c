@@ -10,7 +10,7 @@ void sys(void) {
 
 	printf("Operating System:  %s\n", osInfo.sysname);
     printf("Operating System Version:  %s\n", osInfo.version);
-	system("cat /proc/cpuinfo | grep \"model name\" | head -1");
+	system("cat /proc/cpuinfo | grep \"model name\" | head -1"); //piping output from cat into grep and printing the first line
 
 	return;
 }

@@ -13,10 +13,6 @@ void dataParser(struct data* userInput){
 void functionTable(struct data* userInput) {
 
 	if (!(strcmp(userInput->firstWord, "calc\0"))) {
-		if (!(strcmp(userInput->remainder, ""))) { //checks that a remainder was parsed
-			printf("Command \"calc\" needs an expression\n\"calc + 3 4 3\"\n");
-			return;
-		}
 		calc(userInput);
 	}
 	else if (!(strcmp(userInput->firstWord, "time\0"))) {
@@ -29,30 +25,22 @@ void functionTable(struct data* userInput) {
 		sys();
 	}
 	else if (!(strcmp(userInput->firstWord, "put\0"))) {
-		if (userInput->remainder == NULL) {
-			printf("Command \"put\" needs a directory name and filename\n\"put file.txt folder\"\n");
-			return;
-		}
 		put(userInput);
 	}
 	else if (!(strcmp(userInput->firstWord, "get\0"))) {
-		if (userInput->remainder == NULL) {
-			printf("Command \"get\" needs a filename\n\"get file.txt\"\n");
-			return;
-		}
 		get(userInput);
 	}
 	else if (!(strcmp(userInput->firstWord, "quit\0"))) {
 		return;
 	}
 	else {
-		printf("Unknown command\n");
+		printf("ERROR: Unknown command\n");
 	}
 
 	return;
 }
 
-
+ 
 
 int main(void) {
 
@@ -63,11 +51,11 @@ int main(void) {
 
 		fgets(userInput.wholeInput, sizeof(userInput.wholeInput), stdin);
 
-		dataParser(&userInput);
+		dataParser(&userInput); //converts wholeimput into first word and remainder[token]
 
-		functionTable(&userInput);
+		functionTable(&userInput); // table for different function calls
 
-	} while (strcmp(userInput.firstWord, "quit\0"));
+	} while (strcmp(userInput.firstWord, "quit\0")); // while firstword does not equal
 
 
 
