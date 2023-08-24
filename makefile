@@ -18,5 +18,6 @@ obj/put.o: functions.h put.c
 
 clean:
 	rm -rf obj
+	rm shell.exe
 
 
