@@ -14,7 +14,7 @@ void put(struct data* userInput) {
 	int stringFileLocation = 2;
 
 
-	for (int i = 0; i < strlen(userInput->wholeInput); i++) { // calculates the amount of numbers/words
+	for (int i = 0; i < strlen(userInput->wholeInput); i++) { // calculates the amount of words
 		if (userInput->wholeInput[i] == ' ') {
 			words++;
 		}
@@ -73,4 +73,5 @@ void put(struct data* userInput) {
 
 	free(stringTable);
 	return;
+	
 }

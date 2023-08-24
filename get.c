@@ -44,7 +44,13 @@ void get(struct data* userInput) {
 		strcat(systemCall, temp);
 		strcat(systemCall, " ");
 		strcat(systemCall, file);
-		strcat(systemCall, " | tail -40");
+		strcat(systemCall, " | tail -");
+		if((fileLines - printedLines) < 40){
+			sprintf(temp, "%d", fileLines-printedLines);
+			strcat(systemCall, temp);
+		}else{
+			strcat(systemCall, "40");
+		}
 		system(systemCall);
 		
 		if(!(printedLines+40 <= fileLines)){ //detects EOF
@@ -59,4 +65,5 @@ void get(struct data* userInput) {
 	pclose(fileObj); // removes filecache and deallocates memory
 
 	return;
+	
 }
